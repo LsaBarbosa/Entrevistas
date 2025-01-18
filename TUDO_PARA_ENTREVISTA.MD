@@ -2,11 +2,13 @@
 ## Experiencias
 ### Itau
 #### Itau RH
-    - Iniciei minha carreira trabalhando no Itaú, que é um dos principais players do setor financeiro.
-        Lá, tive meu primeiro contato com Clean Architecture e pude colocar em prática princípios de programação
-        e boas práticas, como Clean Code e os princípios SOLID.
+    - Iniciei minha carreira trabalhando no Itaú, minha primeira experiencia no setor financeiro.
+        Lá, desnvolvi e sustentei serviços com Clean Architecture e pude colocar nesses serviços
+            boas práticas programação, como Clean Code e os princípios SOLID.
 
-    - Além disso, desenvolvi, monitorei, mantive e melhorei APIs utilizando Java, Spring Framework, 
+    - Além disso, monitorei, mantive e melhorei APIs utilizando Java, Spring Framework
+    - Tembém desevolvimento de testes usando mockito e Junit, garatindo cobertura de no min 80%
+    - Forneci sustentação as Apis, tendo apoio dos frameworks Splunk e grafana, para logs e saude das apis 
         bem como ferramentas de teste como JUnit e Mockito.
 #### Itaú Tech
     - Realizei implementaçõs de features em APIs utilizando Java e Spring, observando as melhores práticas de programação
@@ -23,7 +25,7 @@
 ### B2B
     - Após essa experiência, trabalhei com contratos no modelo B2B.
     - Desenvolvi algumas páginas comerciais, para empresas locais utilizando Angular, React e TypeScript.
-        com isso desenvolvi muito minhas habilidades de comunicação e organização
+        com isso desenvolvi muito minhas habilidades de comunicação e gestão de tempo, e solução de problemas
         mas dois projetos foram mais relevantes para mim.
 #### Benkyo
 ##### Benkyo RH
@@ -31,8 +33,10 @@
     - A dor dessa empresa era que havia muito gasto com papel, então desenvolvi uma solução e apresentei a empresa.
     - O sistema continha: Cadastro de alunos, resultados de provas, presença, situação financeira, matrícula
         tudo realizado em um único lugar migrando completamente do papel para o digital.
-    - Aqui passei por todo ciclo de desenvolvimento, Regras de negócio, arquitetura, design de código, desenvolvimento,
-        Teste e deploy.
+    - Essa experiencia me fez crescr como desenvolvedor pois passei por todo ciclo de desenvolvimento:
+        - Regras de negócio, escolha de solução, arquitetura, design de código, desenvolvimento, Teste e deploy.
+        - Além de fortalecer mais ainda minhs capacidades de comunicação, resolução de problemas, gestão de tempo
+        -> Java 17, Spring Data, Security, Boot, Postgres(SQL), Clean Arch, testes unitários e boas práticas 
 ##### Benkyo Tech
     - Desenvolvi a Api usando Clean Arch, isolando as regras de negócios, observando as boas práticas de código como clean code
         usando nomes objetivos e funções específicas. além de observar o princípio do SOLID
@@ -44,20 +48,20 @@
 #### Padaria
 ##### Padaria RH
     - O segundo foi um sistema de controle de registro de horas desenvolvido para um mercado. 
-        O principal problema do cliente era o tempo gasto contabilzando as horas registradas em papel 
-            e ao mesmo tempo a empresa queria os dados dos colaboradores no sistema tbm (documentos, salário, cargos)
+        O principal problema do cliente era o tempo gasto contabilzando as horas de forma manual, além disso 
+        a empresa queria os dados dos colaboradores no sistema tbm (documentos, salário, cargos, faltas)
 
-    - O sistema registra funcionários e seus dados, possui níveis de acesso de a cordo com o cargo, 
-        calcula horas extras e informa se o funcionário tem horas a mais ou em débito.
+    - O sistema registra funcionários e seus dados pessoais, possui níveis de acesso de a cordo com o cargo, 
+        calcula horas extras e informa se o funcionário tem horas a mais ou em débito, registra faltas.
 ##### Padaria Tech
     - Nesse projeto utlizei o kotlin no back-end junto do Spring para ciração da Api, usando Clean Arch e boas práticas
     - Spring security com jwt, recursos permitidos para ROLEs específicas
     - Banco de dados Postgres, alem de testes unitários usando Junit e mock
 ### Act
-    - Trabalhei no setor de empréstimos.
-    - Criei microsserviços e melhorei APIs existentes, sempre aplicando boas práticas de programação
-        como Clean Code e os princípios SOLID. Trabalhei com Clean Architecture, Java e Spring.
-        Proporcionava suporte às APIs e resolvia problemas em produção.
+    - Estava alocado no Banco Pan no setor de empréstimos.
+    - Desenvolvi nova features no modelo arquitetural de microsserviços e fiz sustentação de APIs existentes,
+        como sempre aplicando boas práticas de programação. atuei com Clean Architecture, Java e Spring.
+        Dei suporte ao Tech Lead no Desenvolvimento de bugs fix para problmas em produção
 #### Act Tech
     - Atuei com microserviços com arquiteturas Clean arch e hexagonal, usando java 21 e 17, com Spring Framework
     - Criei jobs para automatizar algumas tarefas que não exigiam ações humanas.
@@ -413,6 +417,17 @@ List<Integer> sorted = numbers.stream()
     - Prototype: Uma nova instancia sempre que o bean é requisitado ao container
     - Requeste: Uma nova instancia  por requisição HTTP (uso em apps web)
     - Session: Uma instancia por sessão HTTP
+### AOP
+    - Programação Orientada a aspectos
+        * Modulariza funcionalidades transversais em aplicações java
+
+        * Separa funcionalidade trasnversal da logica principal
+            podem ser tratados de forma isolada em vez de ser repetidos em varias partes do código
+            - Loggin, autenticação, Tratamento de exception
+#### Vantagem
+    - Modularidade: facilita a separção de responsabilidade
+    - Reutilização: Evita a duplicação do código
+    - Manutenção: facilita a manutenção e compreensão do código
 ## MVC
     - Model: representa os dados ou a lógica de negócio da aplicação.
     - View: é a camada de apresentação (por exemplo, páginas HTML ou respostas JSON).
@@ -1198,7 +1213,6 @@ List<Integer> sorted = numbers.stream()
       * Hibernate: Uses Reflection to map Java objects to database tables
       * Spring: Uses Reflection for dependency injection and proxy creation
       * JUnit: Uses Reflection to automatically execute test methods
-
 # **************************
 # BEST PRACTICES
 ## Clean Code
@@ -1355,7 +1369,7 @@ List<Integer> sorted = numbers.stream()
     - Value Objects: Immutable objects representing domain concepts without their own identity, e.g., Address
     - Aggregates: Group of objects treated as a unit, with a Root Entity controlling consistency
     - Services: Used for operations that do not fit into Entities or Value Objects but belong to the domain
-# **************************
+# *************************
 # SPRING FRAMEWORK
 ## Core
 ### Benefits
@@ -1380,6 +1394,17 @@ List<Integer> sorted = numbers.stream()
     - Prototype: Creates a new instance every time the bean is requested from the container
     - Request: Creates a new instance per HTTP request (used in web applications)
     - Session: Creates one instance per HTTP session
+### AOP (Aspect-Oriented Programming)
+    - Programming paradigm that modularizes cross-cutting concerns in Java applications
+
+    - Separates cross-cutting functionality from the main logic
+        * These functionalities can be handled in isolation instead of being repeated across multiple parts of the code
+        * Examples: Logging, Authentication, Exception Handling
+
+#### Advantages
+    - Modularization: Simplifies the separation of responsibilities
+    - Reusability: Avoids code duplication
+    - Maintenance: Enhances code maintainability and readability
 ## MVC
     - Model: Represents the data or business logic of the application
     - View: The presentation layer (e.g., HTML pages or JSON responses)
@@ -1398,7 +1423,6 @@ List<Integer> sorted = numbers.stream()
         - Controller returns the View (or object if it's a RestController)
         - View Resolver determines which file should be rendered
         - Dispatch Servlet combines the Model data with the template and returns the response to the client
-
 ## Spring Data
     - Contains subprojects for simplified access to relational and non-relational databases
         such as Spring Data JPA, Spring Data Mongo
@@ -1530,7 +1554,6 @@ List<Integer> sorted = numbers.stream()
 
     * Facilitates Event-Driven Architecture:
         - Where each service sends/consumes events from a messaging bus
-
 # **************************
 # MICROSERVICES
 ## Concepts

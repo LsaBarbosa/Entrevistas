@@ -594,6 +594,17 @@ Typical Use Cases |    ERP, CRM, transactions     |  Big Data, IoT, social netwo
     - Prototype: Creates a new instance every time the bean is requested from the container
     - Request: Creates a new instance per HTTP request (used in web applications)
     - Session: Creates one instance per HTTP session
+### AOP (Aspect-Oriented Programming)
+    - Programming paradigm that modularizes cross-cutting concerns in Java applications
+
+    - Separates cross-cutting functionality from the main logic
+        * These functionalities can be handled in isolation instead of being repeated across multiple parts of the code
+        * Examples: Logging, Authentication, Exception Handling
+
+#### Advantages
+    - Modularization: Simplifies the separation of responsibilities
+    - Reusability: Avoids code duplication
+    - Maintenance: Enhances code maintainability and readability
 ## MVC
     - Model: Represents the data or business logic of the application
     - View: The presentation layer (e.g., HTML pages or JSON responses)
