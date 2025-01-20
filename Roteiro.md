@@ -271,9 +271,7 @@ __
     - Green (Implement Functionality): Write the simplest code for the test to pass
     - Refactor: Improve the code implementation without altering the tested behavior
     - Repeat the process by adding new tests and expanding functionality
-
-### Possible Questions
-#### Simple
+### Simple
     - TDD vs. Conventional Testing
         A: TDD writes the test first; in conventional testing, the test is done after implementing the functionality
 
@@ -380,7 +378,6 @@ maria  null null
 ```
 
     - FULL JOIN: Combines all records from all tables, NULL where no match exists
-
 ```text
 EXEMPLO FULL
 SELECT clientes.nome, pedidos.id, pedidos.valor

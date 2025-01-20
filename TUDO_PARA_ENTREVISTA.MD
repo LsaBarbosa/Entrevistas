@@ -1,3 +1,60 @@
+## Índice
+- [RH](#rh)
+    - [Experiencias](#experiencias)
+        - [Itau](#itau)
+            - [Itau RH](#itau-rh)
+            - [Itaú Tech](#itaú-tech)
+        - [B2B](#b2b)
+            - [Benkyo](#benkyo)
+                - [Benkyo RH](#benkyo-rh)
+                - [Benkyo Tech](#benkyo-tech)
+            - [Padaria](#padaria)
+                - [Padaria RH](#padaria-rh)
+                - [Padaria Tech](#padaria-tech)
+        - [Act](#act)
+            - [Act Tech](#act-tech)
+    - [Por que mudar](#por-que-mudar)
+    - [Situação de confronto](#situação-de-confronto)
+- [JAVA](#java)
+    - [CORE](#core)
+        - [Class and Objects](#class-and-objects)
+        - [Interface and Abstract](#interface-and-abstract)
+        - [POO](#poo)
+    - [Collection](#collection)
+        - [List](#list)
+        - [Set](#set)
+        - [Map](#map)
+    - [Stream API](#stream-api)
+    - [Lambdas](#lambdas)
+    - [Java Memory Model](#java-memory-model)
+    - [Garbage Collection](#garbage-collection)
+    - [Reflection API](#reflection-api)
+- [BOAS PRATICAS](#boas-praticas)
+    - [CleanCode](#cleancode)
+    - [S.O.L.I.D](#solid)
+- [Pattern Project](#pattern-project)
+- [Arquitetura](#arquitetura)
+    - [Clean Arch](#clean-arch)
+    - [Hexagonal Arch](#hexagonal-arch)
+- [TDD](#tdd)
+- [DDD](#ddd)
+- [SPRING FRAMEWORK](#spring-framework)
+    - [Core](#core)
+    - [MVC](#mvc)
+    - [Spring Data](#spring-data)
+    - [Spring Boot](#spring-boot)
+    - [Spring Security](#spring-security)
+    - [Spring Cloud](#spring-cloud)
+- [MICROSERVICE](#microservice)
+- [MENSAGERIA](#mensageria)
+- [BANCO DE DADOS](#banco-de-dados)
+    - [Relacional](#relacional)
+    - [Não Relacional](#não-relacional)
+- [CLOUD](#cloud)
+- [DOCKER](#docker)
+- [WEB](#web)
+    - [SOAP vs REST](#soap-vs-rest)
+    - [SOAP](#soap)
 # RH
 ## Experiencias
 ### Itau
@@ -85,20 +142,17 @@
     - CLASSE: Modelo para criar objetos, define atributos e métodos que os objetos terão
     - OBJETOS: É a instancia de uma classe, representa o elemento concreto dos atributos definidos pela classe
     - CONSTRUTORES: Método chamado quando o Objeto é criado, incializa atributos de um objeto
-    
     - MODIFICADORES DE ACESSO
         * public: Acessível de qualquer lugar.
         * private: Acessível apenas dentro da própria classe.
         * protected: Acessível dentro do mesmo pacote e por subclasses.
         * default (sem modificador): Acessível apenas dentro do mesmo pacote.
 ### Interface and Abstract
-
 #### INTERFACE: 
     - Contrato que define metodos que a classe deve implementar
         * métodos da interface são publicos e abstratos ( pode default e estatico tbm)
         * Não contém atributo, apenas constantes ( public static final )
         * Uma classe pode implementar várias interfaces
-
 #### CLASSE ABSTRATA: 
     - Não pode ser instanciada, pode metodos abstratos e concretos
         * Serve com base para outras classes
@@ -973,6 +1027,44 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 # ==================
+# WEB
+## SOAP vs REST 
+    Característica	 |   SOAP	         |      REST
+    Formato de Dados |   XML	         |  JSON, XML, outros
+    Complexidade     |   Alta	         |  Baixa
+    Segurança	     |   WS-Security 	 |  TLS/HTTPS
+    Performance	     |   Mais lenta	     |  Mais rápida
+    Suporte a Estado |   Sim	         |  Não (stateless)
+    Contrato	     |   Necessário(WSDL)|	Não obrigatório
+## SOAP
+    - Simpel Object Access Protocol: Baseado em XML para troca de infromaç~es entre sistemas distribuidos
+    - Uso de padrões HTTP,TCP, SMTP
+### Conceitos
+    - Envelope SOAP: Elemento Raíz da msg, tem todas as infosnecessárias para processamento da msg
+    - Header: Usao para autenticação, controle de sessão, é opcional
+    - Body: Representa solicitação ou resposta geralmente
+    - Fault: Quando ocorre um erro, essa seção pode ser incluida, descrevendo o erro
+```xml
+                    <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soap:Header>...</soap:Header>  <!-- Opcional -->
+                        <soap:Body>...</soap:Body>
+                    </soap:Envelope>
+```
+### Vantagem
+    - Padronização e interoperabilidade: Padrão da W3C e funciona em qualquer linguagem que suporte xml
+    - Segurança: SOAP suporta Ws-Security com recursos de autenticação, criptografia, integridade de msg
+    - Trasação ditribuida: Protocolos WS-AtomicTransaction para garantira consistencia em operações distribuidas
+    - Suporte a Msg Assincrona: Usado em arquitetura de mensageria com intermediario JMS
+### Desvantagem
+    - Complexidade: Comparado REST, é mais complexo pois precisa definir contratos WSDL e usa formato XML, mais verboso
+    - Menor Performance: XML ao invés de json torna a comunicação mais lenta e maior consumo de banda
+### Componenten
+    - WSDL (Web Services Description Language): 
+        * Doc XML que descreve as operações disponíveis no serviço, seus parâmetros e formatos de resposta.
+    - UDDI (Universal Description, Discovery, and Integration): 
+        * Registro que permite a descoberta de serviços web Soap
+    - SOAP Message Format: 
+        * Estrutura padrão para comunicação entre cliente servidor
 
 # ////////////// ////////////  ENGLISH ///////////// ///////////////////// ///////////////////// ////////////// //////
 # Experiences
@@ -1923,3 +2015,19 @@ Consistency       |    High (ACID)                | Can prioritize availability 
 Typical Use Cases |    ERP, CRM, transactions     |  Big Data, IoT, social networks
 ```
 # **************************
+#  WEB
+## REST
+    - An architectural style that defines a set of constraints for web services
+    Principles:
+        - Client-Server: The client makes requests, and the server processes and responds
+        - Stateless: The server does not store the client state between requests
+        - Uniform Interface: REST uses standard HTTP methods to interact with resources
+### REST-Full
+    - Implements REST principles, based on HTTP, and uses HTTP methods (GET, POST, DELETE, PUT)
+    - Supports JSON or XML formats
+    
+    * Advantages
+        - Simplicity: Easy to understand and implement, as it uses familiar HTTP conventions.
+        - Interoperability: Can be used by any client that supports HTTP, such as browsers, mobile apps, etc.
+        - Independence: Client and server can evolve independently.
+# *************************
