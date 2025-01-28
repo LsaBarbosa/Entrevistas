@@ -8,8 +8,8 @@ bin/kafka-server-start.sh config/server.properties
 ## Stop o Kafka e o Zookeeper
 bin/kafka-server-stop.sh
 bin/zookeeper-server-stop.sh
-## Criar um novo tópico
-bin/kafka-topics.sh --create --topic <nome-do-topico> --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+## Criar um tópico
+bin/kafka-topics.sh --create --topic <nome-do-tópico> --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
 ## Listar todos os tópicos
 bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 ## Exibir detalhes do tópico 
@@ -206,4 +206,34 @@ bin/kafka-topics.sh --alter --topic meu-topico --partitions 6 --bootstrap-server
     enable.auto.commit	Define se o commit de offset será automático	        true, false
     session.timeout.ms	Tempo de timeout antes do consumidor ser considerado morto	45000
     max.poll.records	Número máximo de mensagens processadas por poll	             100
-# Se e De serialização
+# Cluster Broker
+## Coneito
+    ° Broker: Instancia do kafka em execução no servidor
+        - Recebe,encaminha e armazena mensagens(eventos)
+        - Cada Broker gerencia parte dos dados em disco, organizado em topico e patições
+        - As mensagens recebe do producer e entrega pro consumer
+    
+    ° Cluster: Formado por Brokers trabalhando em conjunto. Compartilham o armazenamento e gerenciamento de modo distribuido
+        - Partição: Cada partição tem um lider e 0 ou mais réplicas
+        - Lider: Broker que é responsável por lidar com leitura e escrita para aquela partição
+        - Réplicar: Outros Brokers que mantêm copia daquela patição, broker caindo, o broker com replcia assume liderança
+        - Broker falhar o cluster segue disponivel, pois outros brokers assumem a liderança 
+        - Replicação garante que os dados naos ejam perdidos em caso de falhas
+## Como Funciona
+    ° Producer: Envia msg ao cluster sem precisar conhecer a topologia completa.
+        - Se conecta ao bootstrap server (endereço broker) para descobrir para onde enviar a msg
+
+    ° Armazenamento: No cluster cada broker guarda msg em logs(que representam partições do tópico)
+        - Se um tópico esta com replicação 3, cada msg será copiada para e brokers diferentes
+
+    ° Consumer: Se conectam a um oumais brokers, localizam as partições e fazem o pull das msg nas partiçoes
+# Batch
+    - Processamento em lote de msg
+    - Objetivo de melhorar performance resuxindo sobrecarga de conexões 
+    - Uso da compressão diminui o volume total de daod trafegados melhorando o throughput
+    - Poll em lote: retorna um conjuto de msg, processmaneto feito dentro do lote dentro do comsumer, e nao iterando sobre registro e processando uma a um
+# Deadletter
+    - Tópico separado para onde enviamos msg que nao puderam ser processada corretamente
+    - Msg que falhou nao pode / faz sentido ser reenviada ao fluxo normal
+    - evita loop de falahas para processar msg que estão corrompidas ou dados inconsistentes
+    - Facilida auditoria e a resolução de problemas, verificando posteriormente msg que foram para DLQ e corrigir o fluxo ou dados

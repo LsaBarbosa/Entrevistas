@@ -210,7 +210,7 @@ List<Integer> sorted = numbers.stream()
 ### Diferenças Clean X Hexa
     - Hexagonal foca mais na separação entre núcleos e adaptadores
     - Clean Arch inclui camadas mais específicas como aplication e entities
-#### Clean Arch
+### Clean Arch
     * Uso do princípio da inversão de dependencia
         - Use case depende de uma interface declarada internamente e não de um repositorio específico de banco
         - Implementaçao concreta desse repositorio (usando framework de persistencia) fica na camada externa
