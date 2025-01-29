@@ -55,11 +55,11 @@
         - Capacidade do objeto assumir formas diferentes
         
         - Tipos:
-            Sobrecarga (Overload) (tempo compilação)
+            Sobrescrita (Override) (tempo compilação)
             - Quando a subclasse redefine um metodo ja declarado na classe pai
             - Mesma assinatura (nome, tipo de retorno e parsametro) da classe pai
 
-            Sobrescrita (Override) (tempo execução)
+            Sobrecarga (Overload) (tempo execução)
             - Varios metodos na mesma classe tem mesmo nome mas assinaturas diferentes
             - Objetivo é ter formas de executar o mesmo metodo dependendo dos args passados
 
@@ -148,6 +148,24 @@ List<Integer> sorted = numbers.stream()
         * Hibernate: usa Reflection para mapear objetos Java em tabelas do BD
         * Spring: usa Reflection para injeção de dependencias e criação de proxies
         * Junit: usa Reflection para executar metodos de teste automaticamente
+# Java 8+ Features
+## O que são lambda expressions e functional interfaces?
+    R: Funç]oes anonimas, interfaces com metodos asbtratos
+## Como funciona a Stream API? Dê um exemplo.
+    R: Processamento sequencial paralelo de coleções 
+    .stream.filter.map
+## Optional:
+    Evita NullPointerException ao encapsular valores opcionais.
+
+## Method references e Default:
+    Atalho para lambdas (ex: System.out::println). 
+    Default: Métodos com implementação em interfaces (ex: List.sort()).
+
+## var (Java 10):
+    Inferência de tipo para variáveis locais.
+
+## Records (Java 16):
+    Classes imutáveis para dados (ex: record User(String name, int age) {})
 # ==================
 # BOAS PRATICAS
 ## CleanCode
@@ -305,6 +323,52 @@ List<Integer> sorted = numbers.stream()
     - Agregados: Conjunto de objetos que são tratados como uma unidade, com uma entidade Raiz controlando a consistencia
     - Services: Usado para operações que nao se encaixam em Entidades ou objetos de valor, mas pertencem ao dominio
 # ==================
+
+# PERGUNTAS
+# Conceitos Java
+## O que são os princípios de OOP e como o Java os implementa?
+    R: Encapsulamento, herança, polimorfismo e bastração
+    R: Ocultar dados via private, get;set, extends, orverride e overload, classes abstrata e interface
+
+## Qual a diferença entre abstração e encapsulamento?
+    R: Abstração esconde a complexidade e encapsulamento esconde dados da classe
+
+## Explique sobrecarga (overloading) e sobrescrita (overriding).
+    
+    R: Overriding é uma forma de sobrescrever o comportamento de uma classe superior, mantendo a mesma assinatura.Na sobre carga o que define o comportamento são os parametros passados 
+
+## Qual a diferença entre ArrayList e LinkedList?
+    R: ArrayList é mais performática busca por índice (array dinamico), 
+    R: Linked é mais performatico para inserção e deleção (usa nó encadeado)   
+
+## Como funciona o HashMap internamente no Java?
+    R: Armazenapares de chave e valor, colisões são tratada como listas encadeada ou árvores
+
+## O que são exceções verificadas (checked) e não verificadas (unchecked)?
+    R: CHecked exigem tratamento, Unchecked erro de logica  null pointer por exemplo
+
+## O que é multithreading e como é implementado em Java?
+    R: Execução concorrente de trheads usando runnable, thread ou executorService
+    
+## O que é a Java Memory Model (JMM)?
+    R: Define como threads interagem com a memoria visibilidade atomicidade
+    
+## Explique o funcionamento do Garbage Collector.
+    R: Remove objetos nao referenciadados da heap
+## O que é polimorfismo e dê um exemplo.
+    R: Objeto pode se comportar como seu tipo ou supertipo
+    R: Linskov principle
+# Collection
+## Qual a diferença entre List, Set e Map?
+    R: List permite duplicado, Set não permite duplicado nao ordenado, Map uso de chave valor 
+## Como o HashMap trata colisões de chaves?
+    R: Lista encadeada ou arvores
+## Qual a diferença entre HashMap, TreeMap e ConcurrentHashMap?
+    R: hash nao ordenado, tree ordenado de forma natural ou por comparador, thread-Safe
+## Como funciona o Comparator vs Comparable?
+    R: Comparator: ordenação customizada(compare), comparable: define a ordem natural compareTO
+## Qual a diferença entre HashSet e TreeSet?
+    R: Hash não ordenado(hash table), ordenado de forma natural ou por comparador
 
 # ENGLISH
 # JAVA
